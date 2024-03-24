@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    title Confirm Email | Demo App
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css')
+  body
+    section.section
+      .container
+        .columns
+          .column.is-half.is-offset-one-quarter
+            .card
+              .card-content
+                h1.title.is-1.has-text-centered Verify your email address
+                p To continue using Demo App, please click the confirmation link
+                sent to your email address:
+                p
+                  strong #{email}

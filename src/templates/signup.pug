@@ -1,0 +1,52 @@
+extends default
+
+block custom_head
+  style.
+    .label.is-required::after {
+      content: ' *';
+      color: red;
+    }
+
+block content
+  mixin validation_error(name)
+    if errors
+      each err in errors
+        if err.key === name
+          p.help.is-danger(aria-errormessage=`${name}-validation-error`) #{err.value}
+
+  section.section
+    .container
+      .columns
+        .column.is-half.is-offset-one-quarter
+          .card
+            .card-content
+              h1.title.is-1.has-text-centered Sign up for Demo App
+              form.form.mb-4(method="POST" action="/signup")
+                .field
+                  label.label.is-required(for="username-input") Username
+                  .control
+                    input.input(type="text", required, name="username", placeholder="Minimum of 3 characters", id="username-input")
+                  +validation_error('username')
+
+                .field
+                  label.label.is-required(for="email-input") Email
+                  .control
+                    input.input(type="email", required, name="email", placeholder="name@example.com", id="email-input")
+                  +validation_error('email')
+
+                .field
+                  label.label.is-required(for="password-input") Password
+                  .control
+                    input.input(type="password", required, name="password", placeholder="Minumum of 6 characters" id="password-input")
+                  +validation_error('password')
+
+                .field
+                  label.label.is-required(for="confirm-password-input") Confirm password
+                  .control
+                    input.input(type="password", required, name="confirm_password", id="confirm-password-input" placeholder="Enter the same password as above")
+                  +validation_error('confirm_password')
+
+                .field
+                  .control
+                    button.button.is-link.is-fullwidth(title="Sign up", data-testid="signup-button") Sign Up!
+              a(href="/login") I already have an account

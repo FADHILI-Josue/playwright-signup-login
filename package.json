@@ -1,0 +1,31 @@
+{
+  "name": "playwright-signup-demo",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "End-to-end testing a registration workflow with Playwright",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "playwright-server": "PORT=3001 APP_URL=http://localhost:3001 node src/server.js"
+  },
+  "keywords": [],
+  "author": "Better Stack Community",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.41.1",
+    "@prettier/plugin-pug": "^3.0.0",
+    "@types/node": "^20.11.10",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^7.0.1",
+    "@fastify/view": "^9.0.0",
+    "ajv-errors": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.25.2",
+    "nodemailer": "^6.9.11",
+    "pug": "^3.0.2"
+  }
+}
